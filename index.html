@@ -1,0 +1,146 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我們的婚禮</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #fff5f5;
+    }
+    .hero-bg {
+      background-image: url('https://images.unsplash.com/photo-1519741497674-4113f4d2c9db?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="bg-pink-100 shadow-md fixed w-full z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <h1 class="text-2xl font-semibold text-pink-600">我們的婚禮</h1>
+        </div>
+        <div class="flex items-center space-x-4">
+          <a href="#home" class="text-pink-600 hover:text-pink-800">首頁</a>
+          <a href="#about" class="text-pink-600 hover:text-pink-800">關於我們</a>
+          <a href="#details" class="text-pink-600 hover:text-pink-800">婚禮細節</a>
+          <a href="#contact" class="text-pink-600 hover:text-pink-800">聯繫</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-bg h-screen flex items-center justify-center">
+    <div class="text-center text-white bg-black bg-opacity-50 p-8 rounded-lg">
+      <h2 class="text-4xl md:text-6xl font-bold mb-4">小明 & 小花</h2>
+      <p class="text-xl md:text-2xl mb-6">2026年3月20日</p>
+      <a href="#details" class="bg-pink-500 text-white px-6 py-3 rounded-full hover:bg-pink-600">了解更多</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-pink-600 text-center mb-8">關於我們</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="text-center">
+          <img src="https://images.unsplash.com/photo-1506794778202-6d8d17e7b9e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="新郎" class="mx-auto rounded-full w-48 h-48 object-cover mb-4">
+          <h3 class="text-xl font-semibold">小明</h3>
+          <p class="text-gray-600">一個熱愛冒險和咖啡的程式設計師，遇見小花後，人生變得更加精彩。</p>
+        </div>
+        <div class="text-center">
+          <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="新娘" class="mx-auto rounded-full w-48 h-48 object-cover mb-4">
+          <h3 class="text-xl font-semibold">小花</h3>
+          <p class="text-gray-600">熱愛烘焙和旅行，與小明一起譜寫未來的每一個篇章。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Details Section -->
+  <section id="details" class="py-16 bg-pink-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-pink-600 text-center mb-8">婚禮細節</h2>
+      <div class="grid md:grid-cols-3 gap-8 text-center">
+        <div>
+          <h3 class="text-xl font-semibold mb-2">日期與時間</h3>
+          <p class="text-gray-600">2026年3月20日<br>下午3:00</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-2">地點</h3>
+          <p class="text-gray-600">台北浪漫花園酒店<br>台北市中山區幸福路123號</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-2">服裝</h3>
+          <p class="text-gray-600">正式禮服<br>建議以粉色或淺色系為主</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-pink-600 text-center mb-8">聯繫我們</h2>
+      <p class="text-center text-gray-600 mb-6">請回覆我們的邀請，與我們分享這份喜悅！</p>
+      <div class="text-center">
+        <p class="text-gray-600 mb-4">聯繫電話: 0988-123-456</p>
+        <p class="text-gray-600 mb-4">電子郵件: wedding@example.com</p>
+        <a href="mailto:wedding@example.com" class="bg-pink-500 text-white px-6 py-3 rounded-full hover:bg-pink-600">回覆邀請</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-pink-100 py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-gray-600">© 2026 小明 & 小花. All Rights Reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
