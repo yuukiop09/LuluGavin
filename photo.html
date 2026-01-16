@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>我們要結婚了</title>
+  <title>冠緯美汝的婚禮邀請</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <style>
     :root{
       --text:#1a1a1a; 
@@ -19,7 +20,7 @@
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Noto Sans TC', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Microsoft JhengHei', 'PingFang TC', sans-serif;}
     a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
+    /* img{max-width:100%;display:block} */
     .container{max-width:var(--container);margin:0 auto;padding:0 20px}
 
     /* Navbar */
@@ -77,6 +78,43 @@
     /* Footer */
     footer{padding:28px 0;color:#6b7280;font-size:14px}
     footer .container{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+    .gallery{
+			position:relative;
+			top:100px;
+			left:100px;
+		}
+		.gallery li{
+			position:absolute;
+			display:block;
+			margin:0;
+			list-style-type:none;
+			padding:10px 10px 50px 10px;
+			background:#fff;
+			border:solid #979797 1px;
+      border-radius: 5px;
+			-webkit-box-shadow:2px 2px 4px #333333;
+			-webkit-transition: -webkit-transform 0.5s ease;
+			-moz-box-shadow:2px 2px 4px #333333;
+			-moz-transition: -moz-transform 0.5s ease;
+			box-shadow:2px 2px 4px #333333;
+			transition: transform 0.5s ease;
+		}
+		.gallery li.active{
+			-webkit-transform:rotate(0deg) !important;
+			-moz-transform:rotate(0deg) !important;
+			transform:rotate(0deg) !important;
+		}
+		.gallery img{
+			display:block;
+			width:460px;
+			-webkit-transition: width 0.75s;
+			-moz-transition: width 0.75s;
+			transition: width 0.75s;
+		}
+		.gallery .active img{
+			display:block;
+			width:800px;
+		}
 
     /* Mobile navbar fixes */
     @media (max-width: 768px){
@@ -90,7 +128,7 @@
   <!-- Navbar -->
   <nav class="nav" aria-label="主選單">
     <div class="container nav-inner">
-      <div class="brand">呂冠緯與林美汝</div>
+      <div class="brand">冠緯與美汝</div>
       <div class="menu" id="menu-desktop">
         <a href="index.html">首頁</a>
         <a href="story.html">我們的故事</a>
@@ -109,9 +147,21 @@
     </div>
   </nav>
 
-  <!-- Ceremony (簡要資訊) -->
+
+
+  <!-- Story Section -->
+   <div>
+
   <section class="container split" id="story">
-    <div class="card-img">
+        <ul class="gallery">
+          <li draggable="true"><img src="https://picsum.photos/640/480"/></li>
+          <li draggable="true"><img src="https://picsum.photos/640/480?1"/></li>
+          <li draggable="true"><img src="https://picsum.photos/640/480?2"/></li>
+          <li draggable="true"><img src="https://picsum.photos/640/480?3"/></li>
+          <li draggable="true"><img src="https://picsum.photos/640/480?4"/></li>
+        </ul>
+
+    <!-- <div class="card-img">
       <img alt="幸福合照" src="https://images.pexels.com/photos/313707/pexels-photo-313707.jpeg" />
     </div>
     <div>
@@ -119,19 +169,70 @@
       <h3>我們決定永遠也不要分開</h3>
       <p class="muted">這是一段文字範例的地方，也可以放進生活或旅遊的點滴。正所謂一般的敘述建立一個好感是與參與者間情感的重要啟動。你們相識、彼此相愛、彼此陪伴的故事，依然會在每句話、每個段落裡發光。</p>
       <a class="btn" href="#">我們的故事</a>
-    </div>
+
+
+
+    </div> -->
   </section>
-  
+   </div>
+
 
   <!-- Footer -->
-  <footer>
+  <!-- <footer>
     <div class="container">
       <div>呂冠緯與林美汝的婚禮邀請</div>
       <div>© 2025</div>
     </div>
-  </footer>
+  </footer> -->
 
   <script>
+
+  $(function(){
+		var zIndex= 1, endTop=0, endLeft=450;
+
+		function randRotation(el){
+			var rot = Math.round( Math.random() * 90-45);
+			return $(el).css({
+				'-webkit-transform':'rotate('+rot+'deg)'
+				,'-moz-transform':'rotate('+rot+'deg)'
+				,'transform':'rotate('+rot+'deg)'
+			});
+		}
+
+		$('.gallery li').each(function(){
+			randRotation(this).css({
+				top:Math.round(Math.random()*50-25)
+				,left:Math.round(Math.random()*50-25)
+				,'zIndex': zIndex++
+			})
+			.click(function(){
+				var myZindex = $(this).css('zIndex');
+				$('.gallery li').not(this).each(function(){
+					if( $(this).css('zIndex') > myZindex ){
+						$(this).css('zIndex',$(this).css('zIndex')-1);
+					}
+				});
+				if(! $(this).is('.active')){
+					$(this).toggleClass('active')
+					.animate({
+						top:endTop
+						,left:endLeft
+					})
+					.css({zIndex:$('.gallery li').length });
+					var activated=$('.gallery .active').not(this);
+					activated.length && activated.click();
+				}else{
+					$('.gallery li').each(function(){$(this).css('zIndex',parseInt($(this).css('zIndex'),10)+1)});
+					randRotation($(this).toggleClass('active'))
+					.animate({
+						top:Math.round(Math.random()*50-25)
+						,left:Math.round(Math.random()*50-25)
+					}).css({zIndex:1});
+				}
+			});
+		});
+	});
+
     // Mobile menu toggle
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('menu-mobile');
