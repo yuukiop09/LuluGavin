@@ -9,6 +9,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <style>
+    @font-face {
+        font-family: 'YunFengW3'; /* 你可以自定義這個名稱 */
+        src: url('font/寶風體W4.ttc') format('truetype'); /* 這裡路徑要根據你的 CSS 位置調整 */
+        font-weight: normal;
+        font-style: normal;
+    }
     :root{
       --text:#1a1a1a; 
       --muted:#6b7280; 
@@ -18,12 +24,16 @@
       --container:1200px;
     }
     *{box-sizing:border-box}
-    html,body{height:100vh;margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Noto Sans TC', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Microsoft JhengHei', 'PingFang TC', sans-serif;}
+    html,body{height:100vh;margin:0;padding:0;background:var(--bg);color:var(--text);}
+    
+    
     body{
-      background-image: url('photo/bg2.jpg');
+      background-image: url('photo/bg.png');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+      font-family: 'YunFengW3', sans-serif;
+      font-size: 1.4rem;font-weight: bold;
     }
     a{color:inherit;text-decoration:none}
     /* img{max-width:100%;display:block} */
@@ -126,6 +136,9 @@
 
     /* Mobile navbar fixes */
     @media (max-width: 768px){
+      body{
+        background-image: url('photo/bg2.jpg');
+      }
       .menu{display:none}
       .hamburger{display:flex}
       .nav-inner{height:56px}
@@ -146,11 +159,11 @@
   <nav class="nav" aria-label="主選單">
     <div class="container nav-inner">
       <a href="index.html" class="brand">💟冠緯&美汝</a>
-      <div class="menu" id="menu-desktop">
+      <!-- <div class="menu" id="menu-desktop">
         <a href="#aboutus" onclick="dpTitle()">💍『汝』影隨行，『緯』愛守候</a>
         <a href="#story">💕 我們的故事</a>
         <a href="#rsvp"> 💌確認出席</a>
-      </div>
+      </div> -->
       <!-- <button class="hamburger" id="hamburger" aria-label="開啟選單" aria-expanded="false">
         <span></span><span></span><span></span>
       </button> -->
@@ -170,13 +183,13 @@
   <section class="container split" id="story">
         <ul class="gallery">
           <li draggable="true">
-            <img src="photo/01.jpg"/>
+            <img src="https://dev2.9iin.com/images/ftr360/aboutUs/api/01.jpg"/>
             <!-- <div>1231231</div> -->
           </li>
-          <li draggable="true"><img src="photo/02.jpg"/></li>
-          <li draggable="true"><img src="photo/03.jpg"/></li>
-          <li draggable="true"><img src="photo/04.jpg"/></li>
-          <li draggable="true"><img src="photo/05.jpg"/></li>
+          <li draggable="true"><img src="https://dev2.9iin.com/images/ftr360/aboutUs/api/02.jpg"/></li>
+          <li draggable="true"><img src="https://dev2.9iin.com/images/ftr360/aboutUs/api/03.jpg"/></li>
+          <li draggable="true"><img src="https://dev2.9iin.com/images/ftr360/aboutUs/api/04.jpg"/></li>
+          <li draggable="true"><img src="https://dev2.9iin.com/images/ftr360/aboutUs/api/05.jpg"/></li>
         </ul>
 
     <!-- <div class="card-img">
@@ -199,7 +212,7 @@
 <div id="music-container" style="position: fixed; bottom: 20px; left: 20px; z-index: 9999; cursor: pointer;">
     <div id="music-icon" style="width: 40px; height: 40px; background: url('https://cdn-icons-png.flaticon.com/512/3659/3659841.png') no-repeat center; background-size: cover; border-radius: 50%; animation: rotate 3s linear infinite; animation-play-state: paused;"></div>
     <audio id="wedding-audio" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        <source src="https://dev2.9iin.com/images/ftr360/aboutUs/api/wbgm.mp3" type="audio/mpeg">
         您的瀏覽器不支持音頻播放。
     </audio>
 </div>
