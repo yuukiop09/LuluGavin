@@ -20,7 +20,7 @@
     *{box-sizing:border-box}
     html,body{height:100vh;margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Noto Sans TC', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Microsoft JhengHei', 'PingFang TC', sans-serif;}
     body{
-      background-image: url('photo/bg.png');
+      background-image: url('photo/bg2.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -193,6 +193,57 @@
     </div> -->
   </section>
    </div>
+
+
+
+<div id="music-container" style="position: fixed; bottom: 20px; left: 20px; z-index: 9999; cursor: pointer;">
+    <div id="music-icon" style="width: 40px; height: 40px; background: url('https://cdn-icons-png.flaticon.com/512/3659/3659841.png') no-repeat center; background-size: cover; border-radius: 50%; animation: rotate 3s linear infinite; animation-play-state: paused;"></div>
+    <audio id="wedding-audio" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        您的瀏覽器不支持音頻播放。
+    </audio>
+</div>
+
+<style>
+    @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+    .playing { animation-play-state: running !important; }
+</style>
+
+<script>
+const audio = document.getElementById('wedding-audio');
+const musicIcon = document.getElementById('music-icon');
+
+// 封裝一個播放函式
+function playMusic() {
+    audio.play().then(() => {
+        musicIcon.classList.add('playing');
+        // 播放成功後，移除全域監聽，避免重複執行
+        document.removeEventListener('click', playMusic);
+        document.removeEventListener('touchstart', playMusic);
+    }).catch(error => {
+        console.log("自動播放被攔截，等待使用者互動...");
+    });
+}
+
+// 監聽使用者的第一次點擊或觸控（手機版）
+document.addEventListener('click', playMusic);
+document.addEventListener('touchstart', playMusic);
+
+// 原本的圖標點擊切換功能保留
+document.getElementById('music-container').onclick = function(e) {
+    e.stopPropagation(); // 防止觸發全域點擊事件
+    if (audio.paused) {
+        audio.play();
+        musicIcon.classList.add('playing');
+    } else {
+        audio.pause();
+        musicIcon.classList.remove('playing');
+    }
+};
+</script>
 
 
   <!-- Footer -->
