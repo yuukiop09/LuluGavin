@@ -8,6 +8,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
   <style>
+    @font-face {
+        font-family: 'YunFengW3'; /* 你可以自定義這個名稱 */
+        src: url('font/寶風體W4.ttc') format('truetype'); /* 這裡路徑要根據你的 CSS 位置調整 */
+        font-weight: normal;
+        font-style: normal;
+    }
     :root{
       --text:#1a1a1a; 
       --muted:#6b7280; 
@@ -17,7 +23,8 @@
       --container:1200px;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:#f7f7f7;color:var(--text);font-family:'Noto Sans TC', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Microsoft JhengHei', 'PingFang TC', sans-serif;scroll-behavior: smooth;}
+    /* html,body{margin:0;padding:0;background:#f7f7f7;color:var(--text);font-family:'Noto Sans TC', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Microsoft JhengHei', 'PingFang TC', sans-serif;scroll-behavior: smooth;} */
+    html,body{margin:0;padding:0;background:#f7f7f7;color:var(--text);font-family: 'YunFengW3', sans-serif;font-size: 1.2rem;font-weight: bold;}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
     .container{max-width:var(--container);margin:0 auto;padding:0 20px}
@@ -88,11 +95,12 @@
 
     /* Mobile navbar fixes */
     @media (max-width: 768px){
+
       .menu{display:none}
       .hamburger{display:flex}
       .nav-inner{height:56px}
       h2.kicker{font-size: 1.6rem;}
-      h2.kicker-fix{margin-left:-12px;font-size: 1.6rem;}
+      h2.kicker-fix{margin-left:-12px;font-size: 1.4rem;}
       h3{font-size:1.2rem;margin:0 0 12px}
       .card-dp1{display:none;}
       .card-dp2{display:block;}
@@ -113,9 +121,15 @@
               1px 2px 0 #000000;}
       .hero-sub{
         color:#ffffff;
+        font-weight:bold;font-size:20px;
       }
+      .hero-meta{font-weight:bold;font-size:20px;}
+
       #home{
         margin-bottom:60px;
+      }
+      footer{
+        font-size:1rem;
       }
 
 
@@ -131,6 +145,8 @@
         <a href="#aboutus">💍『汝』影隨行，『緯』愛守候</a>
         <a href="#story">💕 我們的故事</a>
         <a href="#rsvp"> 💌確認出席</a>
+        <a href="#car" onclick="dpTitle()"> 🅿️停車資訊</a>
+
       </div>
       <button class="hamburger" id="hamburger" aria-label="開啟選單" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -140,6 +156,7 @@
       <a href="#aboutus" onclick="dpTitle()">💍『汝』影隨行，『緯』愛守候</a>
       <a href="#story" onclick="dpTitle()">💕 我們的故事</a>
       <a href="#rsvp" onclick="dpTitle()"> 💌確認出席</a>
+      <a href="#car" onclick="dpTitle()"> 🅿️停車資訊</a>
     </div>
   </nav>
 
@@ -152,7 +169,7 @@
           <div class="slide-bg slide-bg-fix1" style="background-image:url('photo/01.jpg');"></div>
           <div class="hero-content hero-content-fix1">
             <h1 class="hero-title">冠緯美汝的婚禮邀請</h1>
-            <div class="hero-sub">冠緯與美汝</div>
+            <div class="hero-sub"></div>
             <div class="hero-meta">2026年 04月 11日 ｜ 全國大飯店</div>
           </div>
         </div>
@@ -235,7 +252,7 @@
     </div>
   </section> -->
 
-    <section class="rsvp" id="rsvp">
+  <section class="rsvp" id="rsvp">
     <div class="container split">
       <div class="card-img card-dp1">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.518625866411!2d120.66117567593648!3d24.15353777317917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d9d07e49ca1%3A0x380e1e9dad8a5b5b!2z5Y-w5Lit5YWo5ZyL5aSn6aOv5bqXIEhvdGVsIE5hdGlvbmFs!5e0!3m2!1szh-TW!2stw!4v1756456554281!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -248,7 +265,10 @@
         <p class="muted-fix">期待婚禮當天見到你 🥂</p>
         <br>
         <p class="muted-fix-title">婚禮資訊</p>
-        <p class="muted" style="margin:8px 0 0">日期｜2026年 04月 11日（週六）<br>時間｜12:30入席，12:45典禮開始<br>地點｜全國大飯店（台中市西區館前路57號）</p>
+        <p class="muted" style="margin:8px 0 0;">日期:2026年 04月 11日（週六）</p>
+        <p class="muted" style="margin:8px 0 0;">時間:12:00開始入席~12:30準時開席</p>
+        <p class="muted" style="margin:8px 0 0;">地點:全國大飯店</p>
+        <p class="muted" style="margin:8px 0 0;">地址:台中市西區館前路57號</p>
         <br>
         <a class="btn" href="https://forms.gle/8KitW2kgccR34H6K8" target="_blank">確認出席</a>
       </div>
@@ -257,6 +277,75 @@
       </div>
     </div>
   </section>
+
+  <section class="rsvp" id="car">
+    <div class="container split">
+      <div>
+        <h2 class="kicker">🅿️ 停車資訊</h2>
+        <p class="muted-fix">飯店停車場</p>
+        <p class="muted-fix">•入口：館前路正門右轉</p>
+        <p class="muted-fix">•車位有限，先到先停，無法預約</p>
+        <p class="muted-fix">※注意※請留意是否為飯店停車場</p>
+        <br>
+        <p class="muted-fix">特約停車場</p>
+        <p class="muted-fix">•勤美誠品立體停車場</p>
+        <p class="muted-fix">•可享停車折抵優惠</p>
+      </div>
+      <div class="card-img">
+        <img alt="停車" src="photo/car.jpg" />
+      </div>
+    </div>
+  </section>
+
+
+<div id="music-container" style="position: fixed; bottom: 20px; left: 20px; z-index: 9999; cursor: pointer;">
+    <div id="music-icon" style="width: 40px; height: 40px; background: url('https://cdn-icons-png.flaticon.com/512/3659/3659841.png') no-repeat center; background-size: cover; border-radius: 50%; animation: rotate 3s linear infinite; animation-play-state: paused;"></div>
+    <audio id="wedding-audio" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        您的瀏覽器不支持音頻播放。
+    </audio>
+</div>
+
+<style>
+    @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+    .playing { animation-play-state: running !important; }
+</style>
+
+<script>
+const audio = document.getElementById('wedding-audio');
+const musicIcon = document.getElementById('music-icon');
+
+// 封裝一個播放函式
+function playMusic() {
+    audio.play().then(() => {
+        musicIcon.classList.add('playing');
+        // 播放成功後，移除全域監聽，避免重複執行
+        document.removeEventListener('click', playMusic);
+        document.removeEventListener('touchstart', playMusic);
+    }).catch(error => {
+        console.log("自動播放被攔截，等待使用者互動...");
+    });
+}
+
+// 監聽使用者的第一次點擊或觸控（手機版）
+document.addEventListener('click', playMusic);
+document.addEventListener('touchstart', playMusic);
+
+// 原本的圖標點擊切換功能保留
+document.getElementById('music-container').onclick = function(e) {
+    e.stopPropagation(); // 防止觸發全域點擊事件
+    if (audio.paused) {
+        audio.play();
+        musicIcon.classList.add('playing');
+    } else {
+        audio.pause();
+        musicIcon.classList.remove('playing');
+    }
+};
+</script>
 
   <!-- Footer -->
   <footer>
