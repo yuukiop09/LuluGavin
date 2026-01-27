@@ -11,7 +11,7 @@
   <style>
     @font-face {
         font-family: 'YunFengW3'; /* 你可以自定義這個名稱 */
-        src: url('font/寶風體W4.ttc') format('truetype'); /* 這裡路徑要根據你的 CSS 位置調整 */
+        src: url('font/華康娃娃體.TTF') format('truetype'); /* 這裡路徑要根據你的 CSS 位置調整 */
         font-weight: normal;
         font-style: normal;
     }
@@ -133,6 +133,19 @@
 			display:block;
 			width:20vw;
 		}
+    .pic-info{
+        color:#f56946;
+        text-shadow: 
+              -1px -1px 0 #ffffff,
+              1px -1px 0 #ffffff,
+              -1px 1px 0 #ffffff,
+              2px 2px 1px #ffffff;
+    }
+    .btn-back{
+      padding: 5px;
+      border: 2px solid #4d4d4d;
+      border-radius: 5px;
+    }
 
     /* Mobile navbar fixes */
     @media (max-width: 768px){
@@ -144,7 +157,7 @@
       .nav-inner{height:56px}
       .gallery{
         position:relative;
-        top:50px;
+        top:-10px;
         left:50px;
       }
       .gallery .active img{
@@ -164,9 +177,8 @@
         <a href="#story">💕 我們的故事</a>
         <a href="#rsvp"> 💌確認出席</a>
       </div> -->
-      <!-- <button class="hamburger" id="hamburger" aria-label="開啟選單" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button> -->
+      <a class="btn-back" href="index.html" class="brand">返回</a>
+
     </div>
     <div class="container mobile-menu" id="menu-mobile">
       <a href="#aboutus">💍『汝』影隨行，『緯』愛守候</a>
@@ -174,6 +186,10 @@
       <a href="#rsvp"> 💌確認出席</a>
     </div>
   </nav>
+    <div class="container nav-inner pic-info">
+      <p>點照片放大👇</p>
+    </div>
+
 
 
 
@@ -208,7 +224,7 @@
 
 
 <div id="music-container" style="position: fixed; bottom: 20px; left: 20px; z-index: 9999; cursor: pointer;">
-    <div id="music-icon" style="width: 40px; height: 40px; background: url('https://cdn-icons-png.flaticon.com/512/3659/3659841.png') no-repeat center; background-size: cover; border-radius: 50%; animation: rotate 3s linear infinite; animation-play-state: paused;"></div>
+    <div id="music-icon" style="width: 40px; height: 40px; background: url('photo/music.png') no-repeat center; background-size: cover; border-radius: 50%; animation: rotate 3s linear infinite; animation-play-state: paused;"></div>
     <audio id="wedding-audio" loop>
         <source src="https://dev2.9iin.com/images/ftr360/aboutUs/api/wbgm.mp3" type="audio/mpeg">
         您的瀏覽器不支持音頻播放。
@@ -272,7 +288,7 @@ document.getElementById('music-container').onclick = function(e) {
 
     $(function(){
       if ($(window).width() < 768) {
-        var zIndex= 1, endTop=16, endLeft= -5,padding='10px 10px 20% 10px;';
+        var zIndex= 1, endTop=14, endLeft= -5,padding='10px 10px 20% 10px;';
       }else{
         var zIndex= 1, endTop=-5, endLeft=25,padding='10px 10px 20% 10px;';
       }

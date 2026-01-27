@@ -11,7 +11,7 @@
   <style>
     @font-face {
         font-family: 'YunFengW3'; /* 你可以自定義這個名稱 */
-        src: url('font/寶風體W4.ttc') format('truetype'); /* 這裡路徑要根據你的 CSS 位置調整 */
+        src: url('font/華康娃娃體.TTF') format('truetype'); /* 這裡路徑要根據你的 CSS 位置調整 */
         font-weight: normal;
         font-style: normal;
     }
@@ -26,7 +26,7 @@
     }
     *{box-sizing:border-box}
     /* html,body{margin:0;padding:0;background:#f7f7f7;color:var(--text);font-family:'Noto Sans TC', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Microsoft JhengHei', 'PingFang TC', sans-serif;scroll-behavior: smooth;} */
-    html,body{margin:0;padding:0;background:#f7f7f7;color:var(--text);font-family: 'YunFengW3', sans-serif;font-size: 1.2rem;font-weight: bold;}
+    html,body{margin:0;padding:0;background:#f7f7f7;color:var(--text);scroll-behavior: smooth;font-family: 'YunFengW3', sans-serif;font-size: 1.2rem;font-weight: bold;}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
     .container{max-width:var(--container);margin:0 auto;padding:0 20px}
@@ -102,14 +102,14 @@
       .hamburger{display:flex}
       .nav-inner{height:56px}
       h2.kicker{
-        font-size: 1.6rem;
-        font-family: 'Noto Sans TC', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Microsoft JhengHei', 'PingFang TC', sans-serif;
+        font-size: 1.4rem;
+        /* font-family: 'Noto Sans TC', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Microsoft JhengHei', 'PingFang TC', sans-serif; */
       
       }
       h2.kicker-fix{
         margin-left:-12px;
         font-size: 1.4rem;
-        font-family: 'Noto Sans TC', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Microsoft JhengHei', 'PingFang TC', sans-serif;
+        /* font-family: 'Noto Sans TC', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Microsoft JhengHei', 'PingFang TC', sans-serif; */
       }
       h3{font-size:1.2rem;margin:0 0 12px}
       .card-dp1{display:none;}
@@ -123,17 +123,18 @@
       .hero-content-fix1{
         margin-left:8vw;
         margin-top: 40vh;
-        color:#181818;
+        color:#f56946;
         text-shadow: 
-                /* -1px -1px 0 #000000, */
-              /* 1px -1px 0 #000000, */
-              /* -1px 1px 0 #000000, */
-              2px 2px 1px #ffffff;}
+              -1px -1px 0 #ffffff,
+              1px -1px 0 #ffffff,
+              -1px 1px 0 #ffffff,
+              2px 2px 1px #ffffff;
+      }
       .hero-sub{
         color:#ffffff;
         font-weight:bold;font-size:20px;
       }
-      .hero-meta{font-weight:bold;font-size:20px;}
+      .hero-meta{font-weight:bold;font-size:18px;}
 
       #home{
         margin-bottom:60px;
@@ -145,8 +146,10 @@
 
     }
     @media (max-width: 400px){
-      h2.kicker-fix{font-size: 1.2rem;}
-
+      h2.kicker-fix{font-size: 1.28rem;}
+      .muted {font-size: 20px;}
+      .muted-fix {font-size: 20px;line-height: 36px;}
+      .mobile-menu a{font-size: 22px;}
     }
   </style>
 </head>
@@ -158,8 +161,8 @@
       <div class="menu" id="menu-desktop">
         <a href="#aboutus">💍『汝』影隨行，『緯』愛守候</a>
         <a href="#story">💕 我們的故事</a>
-        <a href="#rsvp"> 💌 確認出席</a>
-        <a href="#car" onclick="dpTitle()"> 🅿 停車資訊</a>
+        <a href="#rsvp">💌 確認出席</a>
+        <a href="#car" onclick="dpTitle()">🅿️ 停車資訊</a>
         <a href="photo.html" onclick="dpTitle()">📷 相簿</a>
 
       </div>
@@ -168,10 +171,10 @@
       </button>
     </div>
     <div class="container mobile-menu" id="menu-mobile">
-      <a href="#aboutus" onclick="dpTitle()">💍『汝』影隨行，『緯』愛守候</a>
+      <a href="#aboutus" onclick="dpTitle()">  💍『汝』影隨行，『緯』愛守候</a>
       <a href="#story" onclick="dpTitle()">💕 我們的故事</a>
-      <a href="#rsvp" onclick="dpTitle()"> 💌 確認出席</a>
-      <a href="#car" onclick="dpTitle()"> 🅿 停車資訊</a>
+      <a href="#rsvp" onclick="dpTitle()">💌 確認出席</a>
+      <a href="#car" onclick="dpTitle()"> 🅿️ 停車資訊</a>
       <a href="photo.html" onclick="dpTitle()">📷 相簿</a>
 
     </div>
@@ -182,7 +185,7 @@
     <div class="slider" id="slider" aria-roledescription="carousel">
       <div class="slides" id="slides">
         <!-- Slide 1 -->
-        <div class="slide" role="group" aria-label="1 / 3">
+        <div class="slide" role="group" aria-label="1 / 4">
           <div class="slide-bg slide-bg-fix1" style="background-image:url('https://dev2.9iin.com/images/ftr360/aboutUs/api/06.jpg');"></div>
           <div class="hero-content hero-content-fix1">
             <h1 class="hero-title">冠緯美汝的婚禮邀請</h1>
@@ -191,23 +194,16 @@
           </div>
         </div>
         <!-- Slide 2 -->
-        <div class="slide" role="group" aria-label="2 / 3">
-          <div class="slide-bg slide-bg-fix2" style="background-image:url('https://dev2.9iin.com/images/ftr360/aboutUs/api/02.jpg');"></div>
-          <!-- <div class="hero-content hero-content-fix1">
-            <h1 class="hero-title">在一起五年之後</h1>
-            <div class="hero-sub">此時此刻是我們愛情故事幸福的一章。</div>
-            <div class="hero-meta">我們在工作中擦出火花，在時間裡兌現承諾。</div>
-            <div class="hero-meta">五年後，這段愛將以婚禮為名，緩緩封存於心中永恆。✨</div>
-          </div> -->
+        <div class="slide" role="group" aria-label="2 / 4">
+          <div class="slide-bg slide-bg-fix1" style="background-image:url('https://dev2.9iin.com/images/ftr360/aboutUs/api/01.jpg');"></div>
         </div>
         <!-- Slide 3 -->
-        <div class="slide" role="group" aria-label="3 / 3">
+        <div class="slide" role="group" aria-label="3 / 4">
+          <div class="slide-bg slide-bg-fix2" style="background-image:url('https://dev2.9iin.com/images/ftr360/aboutUs/api/02.jpg');"></div>
+        </div>
+        <!-- Slide 4 -->
+        <div class="slide" role="group" aria-label="4 / 4">
           <div class="slide-bg slide-bg-fix3" style="background-image:url('https://dev2.9iin.com/images/ftr360/aboutUs/api/03.jpg');"></div>
-          <!-- <div class="hero-content hero-content-fix2">
-            <h1 class="hero-title">誠摯邀請</h1>
-            <div class="hero-sub">您的到來就是我們的祝福</div>
-            <div class="hero-meta">立即向下滑了解更多</div>
-          </div> -->
         </div>
       </div>
       <button class="arrow left" id="prev" aria-label="上一張" title="上一張">&#10094;</button>
@@ -228,9 +224,9 @@
         <h3>我們不小心談了很久的戀愛，</h3>
         <h3>現在要結婚升級成「夫妻」啦！</h3>
         <br>
-        <p class="muted">這麽重要的時刻，</p>
+        <p class="muted">這麼重要的時刻，</p>
         <p class="muted">希望你能來陪我們一起笑、一起感動、一起幸福。✨</p>
-        <p class="muted">期待在婚禮當天見到你 🤍</p>
+        <p class="muted">期待在婚禮當天見到你❤️</p>
         <!-- <a class="btn" href="#">我們的故事</a> -->
       </div>
       <div class="card-img card-dp2">
@@ -316,7 +312,7 @@
 
 
 <div id="music-container" style="position: fixed; bottom: 20px; left: 20px; z-index: 9999; cursor: pointer;">
-    <div id="music-icon" style="width: 40px; height: 40px; background: url('https://cdn-icons-png.flaticon.com/512/3659/3659841.png') no-repeat center; background-size: cover; border-radius: 50%; animation: rotate 3s linear infinite; animation-play-state: paused;"></div>
+    <div id="music-icon" style="width: 40px; height: 40px; background: url('photo/music.png') no-repeat center; background-size: cover; border-radius: 50%; animation: rotate 3s linear infinite; animation-play-state: paused;"></div>
     <audio id="wedding-audio" loop>
         <source src="https://dev2.9iin.com/images/ftr360/aboutUs/api/wbgm.mp3" type="audio/mpeg">
         您的瀏覽器不支持音頻播放。
