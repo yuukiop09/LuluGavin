@@ -53,8 +53,8 @@
     .slide::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.15) 40%,rgba(0,0,0,.0));}
     .slide-bg{position:absolute;inset:0;background-size:cover;background-position:center}
     .hero-content{position:relative;z-index:2;color:#fff;max-width:var(--container);margin:0 auto;padding:0 20px;width:100%;}
-    .hero-title{font-size:clamp(28px,6vw,72px);font-weight:900;letter-spacing:.02em;line-height:1.1;margin:0 0 10px}
-    .hero-sub{font-size:clamp(18px,2.5vw,28px);font-weight:800;color:#fff}
+    .hero-title{font-size:1.8rem;font-weight:900;letter-spacing:.02em;line-height:1.1;margin:0 0 10px}
+    .hero-sub{font-size:1.4rem;font-weight:800;color:#fff}
     .hero-meta{margin-top:18px;font-weight:500}
     .hero-content-fix1{margin-left:120px;}
     .hero-content-fix2{margin-left:240px;}
@@ -243,6 +243,7 @@ input[type="range"] {
 
     /* Mobile navbar fixes */
     @media (max-width: 768px){
+      html,body{font-size: 1rem;}
 
       .menu{display:none}
       .hamburger{display:flex}
@@ -267,7 +268,7 @@ input[type="range"] {
       /* section{padding:10px 0} */
 
       .hero-content-fix1{
-        margin-left:8vw;
+        margin-left:12vw;
         margin-top: 70vh;
         color:#f56946;
         text-shadow: 
@@ -278,7 +279,7 @@ input[type="range"] {
       }
       .hero-sub{
         color:#ffffff;
-        font-weight:bold;font-size:20px;
+        font-weight:bold;font-size:1.4rem;
       }
       .hero-meta{font-weight:bold;font-size:18px;}
 
@@ -290,6 +291,9 @@ input[type="range"] {
       }
       .slide {
         height: 95vh;
+      }
+      .circle-width {
+        width: 75%;
       }
 
 
@@ -307,7 +311,7 @@ input[type="range"] {
       h2.kicker-fix{font-size: 1.28rem;}
       /* .muted {font-size: 20px;} */
       /* .muted-fix {font-size: 20px;line-height: 36px;} */
-      .mobile-menu a{font-size: 22px;}
+      .mobile-menu a{font-size: 16px;}
     }
   </style>
 </head>
@@ -329,7 +333,7 @@ input[type="range"] {
       </button>
     </div>
     <div class="container mobile-menu" id="menu-mobile">
-      <a href="#aboutus" onclick="dpTitle()">   💍   緯美故事，汝此動人</a>
+      <a href="#aboutus" onclick="dpTitle()"> 💍&nbsp; 緯美故事，汝此動人</a>
       <a href="#story" onclick="dpTitle()">💕 我們的故事</a>
       <a href="#rsvp" onclick="dpTitle()">💌 確認出席</a>
       <a href="#car" onclick="dpTitle()"> 🅿️ 停車資訊</a>
@@ -348,7 +352,7 @@ input[type="range"] {
           <div class="hero-content hero-content-fix1">
             <h1 class="hero-title">冠緯美汝的婚禮邀請</h1>
             <div class="hero-sub"></div>
-            <div class="hero-meta">2026年 04月 11日 ｜ 全國大飯店</div>
+            <div class="hero-meta">2026年04月11日 ｜ 全國大飯店</div>
           </div>
         </div>
         <!-- Slide 2 -->
@@ -413,14 +417,14 @@ input[type="range"] {
       
         <div class="volume-container">
             <span style="font-size: 12px; color: #999;">vol</span>
-            <input type="range" id="volumeBar" min="0" max="1" step="0.05" value="0.8">
+            <input type="range" id="volumeBar" min="0" max="1" step="0.05" value="0.5">
         </div>
       
         <!-- <div class="status-text">... 音乐正在播放中 ...</div> -->
       
-        <audio id="audioSource">
+        <!-- <audio id="audioSource">
             <source src="https://dev2.9iin.com/images/ftr360/aboutUs/api/Ed Sheeran - Perfect.mp3" type="audio/mpeg">
-        </audio>
+        </audio> -->
     </div>
   </div>
 
@@ -431,15 +435,18 @@ input[type="range"] {
       <div class="card-img card-dp1 ">
         <img alt="幸福合照" src="https://dev2.9iin.com/images/ftr360/aboutUs/api/04.jpg" />
       </div>
-      <div>
-        <h2 class="kicker kicker">💍緯美故事，汝此動人。</h2>
-        <h3>我們不小心談了很久的戀愛，</h3>
-        <h3>現在要結婚升級成「夫妻」啦！</h3>
-        <br>
-        <p class="muted">這麼重要的時刻，</p>
-        <p class="muted">希望你能來陪我們一起笑、一起感動、一起幸福。✨</p>
-        <p class="muted">期待在婚禮當天見到你❤️</p>
-        <!-- <a class="btn" href="#">我們的故事</a> -->
+      <div class="circle-area">
+        <div class="circle-width">
+          <h2 class="kicker kicker">💍緯美故事，汝此動人。</h2>
+          <h3>我們不小心談了很久的戀愛，</h3>
+          <h3>現在要結婚升級成「夫妻」啦！</h3>
+          <br>
+          <p class="muted">這麼重要的時刻，</p>
+          <p class="muted">希望你能來陪我們，</p>
+          <p class="muted">一起歡笑、一起感動、一起幸福，✨</p>
+          <p class="muted">期待在婚禮當天見到你。❤️</p>
+          <!-- <a class="btn" href="#">我們的故事</a> -->
+        </div>
       </div>
       <div class="card-img card-dp2">
         <img alt="幸福合照" src="https://dev2.9iin.com/images/ftr360/aboutUs/api/04.jpg" />
@@ -450,18 +457,20 @@ input[type="range"] {
   <!-- RSVP / Invite Section -->
   <section class="rsvp" id="story">
     <div class="container split">
-      <div>
-        <h2 class="kicker">💕 我們的故事</h2>
-        <h3>在一起五年多，</h3>
-        <h3>從公司相識到成為彼此最重要的人。</h3>
-        <br>
-        <p class="muted">我們在生活裡互相陪伴，</p>
-        <p class="muted">在忙碌中學會體貼，</p>
-        <p class="muted">也在平凡中找到幸福。</p>
-        <p class="muted">這一天，</p>
-        <p class="muted">我們決定牽著彼此的手，</p>
-        <p class="muted">走向下一個人生階段</p>
-        <!-- <a class="btn" href="#">現在回覆</a> -->
+      <div class="circle-area">
+        <div class="circle-width">
+          <h2 class="kicker">💕 我們的故事</h2>
+          <h3>在一起五年多，</h3>
+          <h3>從公司相識到成為彼此最重要的人。</h3>
+          <br>
+          <p class="muted">我們在生活裡互相陪伴，</p>
+          <p class="muted">在忙碌中學會體貼，</p>
+          <p class="muted">也在平凡中找到幸福。</p>
+          <p class="muted">這一天，</p>
+          <p class="muted">我們決定牽著彼此的手，</p>
+          <p class="muted">走向下一個人生階段</p>
+          <!-- <a class="btn" href="#">現在回覆</a> -->
+        </div>
       </div>
       <div class="card-img">
         <img alt="開心合照" src="https://dev2.9iin.com/images/ftr360/aboutUs/api/05.jpg" />
@@ -482,20 +491,22 @@ input[type="range"] {
       <div class="card-img card-dp1">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.518625866411!2d120.66117567593648!3d24.15353777317917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d9d07e49ca1%3A0x380e1e9dad8a5b5b!2z5Y-w5Lit5YWo5ZyL5aSn6aOv5bqXIEhvdGVsIE5hdGlvbmFs!5e0!3m2!1szh-TW!2stw!4v1756456554281!5m2!1szh-TW!2stw" width="600" height="750" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
-      <div>
-        <h2 class="kicker">💌 確認出席</h2>
-        <p class="muted">很希望你能來和我們一起分享喜悅。</p>
-        <p class="muted">為了安排座位與餐點，</p>
-        <p class="muted">請記得填寫出席回覆表單！</p>
-        <p class="muted">期待婚禮當天見到你 🥂</p>
-        <br>
-        <p class="muted-fix-title">💍婚禮資訊</p>
-        <p class="muted" style="margin:8px 0 0;">日期:2026年 04月 11日（週六）</p>
-        <p class="muted" style="margin:8px 0 0;">時間:12:00開始入席~12:30準時開席</p>
-        <p class="muted" style="margin:8px 0 0;">地點:全國大飯店</p>
-        <p class="muted" style="margin:8px 0 0;">地址:台中市西區館前路57號</p>
-        <br>
-        <a class="btn" href="https://forms.gle/8KitW2kgccR34H6K8" target="_blank">👉確認出席</a>
+      <div class="circle-area">
+        <div class="circle-width">
+          <h2 class="kicker">💌 確認出席</h2>
+          <p class="muted">很希望你能來和我們一起分享喜悅。</p>
+          <p class="muted">為了安排座位與餐點，</p>
+          <p class="muted">請記得填寫出席回覆表單！</p>
+          <p class="muted">期待婚禮當天見到你 🥂</p>
+          <br>
+          <p class="muted-fix-title">💍婚禮資訊</p>
+          <p class="muted" style="margin:8px 0 0;">日期：2026年04月11日（週六）</p>
+          <p class="muted" style="margin:8px 0 0;">時間：12：00開始入席~12：30準時開席</p>
+          <p class="muted" style="margin:8px 0 0;">地點：全國大飯店</p>
+          <p class="muted" style="margin:8px 0 0;">地址：台中市西區館前路57號</p>
+          <br>
+          <a class="btn" href="https://forms.gle/8KitW2kgccR34H6K8" target="_blank">👉確認出席</a>
+        </div>
       </div>
       <div class="card-img card-dp2">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.518625866411!2d120.66117567593648!3d24.15353777317917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d9d07e49ca1%3A0x380e1e9dad8a5b5b!2z5Y-w5Lit5YWo5ZyL5aSn6aOv5bqXIEhvdGVsIE5hdGlvbmFs!5e0!3m2!1szh-TW!2stw!4v1756456554281!5m2!1szh-TW!2stw" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -505,16 +516,18 @@ input[type="range"] {
 
   <section class="rsvp" id="car">
     <div class="container split">
-      <div>
-        <h2 class="kicker">🅿 停車資訊</h2>
-        <p class="muted">飯店停車場</p>
-        <p class="muted">•入口：館前路正門右轉</p>
-        <p class="muted">•車位有限，先到先停，無法預約</p>
-        <p class="muted">※注意※請留意是否為飯店停車場</p>
-        <br>
-        <p class="muted">特約停車場</p>
-        <p class="muted">•勤美誠品立體停車場</p>
-        <p class="muted">•可享停車折抵優惠</p>
+      <div class="circle-area">
+        <div class="circle-width">
+          <h2 class="kicker">🅿 停車資訊</h2>
+          <p class="muted">飯店停車場</p>
+          <p class="muted">•入口：館前路正門右轉</p>
+          <p class="muted">•車位有限，先到先停，無法預約</p>
+          <p class="muted">※注意※請留意是否為飯店停車場</p>
+          <br>
+          <p class="muted">特約停車場</p>
+          <p class="muted">•勤美誠品立體停車場</p>
+          <p class="muted">•可享停車折抵優惠</p>
+        </div>
       </div>
       <div class="card-img">
         <img alt="停車" src="https://dev2.9iin.com/images/ftr360/aboutUs/api/car.jpg" />
@@ -524,93 +537,90 @@ input[type="range"] {
 
   <section class="rsvp">
     <div class="container split">
-      <div>
-        <h2 class="kicker">📷 前往相簿</h2>
-        <a class="btn" href="photo.html">👉點我前往相簿</a>
-
+      <div class="circle-area">
+        <div class="circle-width">
+          <h2 class="kicker">📷 前往相簿</h2>
+          <a class="btn" href="photo.html">👉點我前往相簿</a>
+        </div>
       </div>
     </div>
   </section>
 
 
-<!-- <div id="music-container" style="position: fixed; bottom: 20px; left: 20px; z-index: 9999; cursor: pointer;">
+<div id="music-container" style="position: fixed; bottom: 20px; left: 20px; z-index: 9999; cursor: pointer;">
     <div id="music-icon" style="width: 40px; height: 40px; background: url('photo/music.png') no-repeat center; background-size: cover; border-radius: 50%; animation: rotate 3s linear infinite; animation-play-state: paused;"></div>
     <audio id="wedding-audio" loop>
-        <source src="https://dev2.9iin.com/images/ftr360/aboutUs/api/wbgm.mp3" type="audio/mpeg">
+        <source src="https://dev2.9iin.com/images/ftr360/aboutUs/api/Ed Sheeran - Perfect.mp3" type="audio/mpeg">
         您的瀏覽器不支持音頻播放。
     </audio>
-</div> -->
+</div>
 
 <style>
-    /* @keyframes rotate {
+    @keyframes rotate {
         from { transform: rotate(0deg); }
         to { transform: rotate(360deg); }
     }
-    .playing { animation-play-state: running !important; } */
+    .playing { animation-play-state: running !important; }
 </style>
 
-<script>
-const audio = document.getElementById('audioSource');
-    const playBtn = document.getElementById('playBtn');
-    const volumeBar = document.getElementById('volumeBar');
-    let isPlaying = false;
-
-    // 播放與暫停切換
-    playBtn.addEventListener('click', () => {
-        if (isPlaying) {
-            audio.pause();
-            playBtn.innerHTML = '▶';
-        } else {
-            audio.play();
-            playBtn.innerHTML = '||';
-        }
-        isPlaying = !isPlaying;
-    });
-
-    // 音量控制
-    volumeBar.addEventListener('input', (e) => {
-        audio.volume = e.target.value;
-    });
-
-    // 音樂結束後的處理
-    audio.onended = () => {
-        isPlaying = false;
-        playBtn.innerHTML = '▶';
-    };
-</script>
-
 
 <script>
-// const audio = document.getElementById('wedding-audio');
-// const musicIcon = document.getElementById('music-icon');
 
-// // 封裝一個播放函式
-// function playMusic() {
-//     audio.play().then(() => {
-//         musicIcon.classList.add('playing');
-//         // 播放成功後，移除全域監聽，避免重複執行
-//         document.removeEventListener('click', playMusic);
-//         document.removeEventListener('touchstart', playMusic);
-//     }).catch(error => {
-//         console.log("自動播放被攔截，等待使用者互動...");
-//     });
-// }
+  // 撥放器音樂
+  const audio = document.getElementById('wedding-audio');
+  const playBtn = document.getElementById('playBtn');
+  const volumeBar = document.getElementById('volumeBar');
+  // 下方音樂
+  const musicIcon = document.getElementById('music-icon');
 
-// // 監聽使用者的第一次點擊或觸控（手機版）
-// document.addEventListener('click', playMusic);
-// document.addEventListener('touchstart', playMusic);
+  // 播放與暫停切換
+  playBtn.addEventListener('click', () => {
+      if (audio.paused) {
+          audio.play();
+          musicIcon.classList.add('playing');
+          playBtn.innerHTML = '||';
+      } else {
+          audio.pause();
+          musicIcon.classList.remove('playing');
+          playBtn.innerHTML = '▶';
+      }
+  });
 
-// // 原本的圖標點擊切換功能保留
-// document.getElementById('music-container').onclick = function(e) {
-//     e.stopPropagation(); // 防止觸發全域點擊事件
-//     if (audio.paused) {
-//         audio.play();
-//         musicIcon.classList.add('playing');
-//     } else {
-//         audio.pause();
-//         musicIcon.classList.remove('playing');
-//     }
-// };
+  // 音量控制
+  volumeBar.addEventListener('input', (e) => {
+      audio.volume = e.target.value;
+  });
+
+  // 封裝一個播放函式
+  function playMusic() {
+      audio.play().then(() => {
+          musicIcon.classList.add('playing');
+          playBtn.innerHTML = '||';
+          // 播放成功後，移除全域監聽，避免重複執行
+          document.removeEventListener('click', playMusic);
+          document.removeEventListener('touchstart', playMusic);
+      }).catch(error => {
+          console.log("自動播放被攔截，等待使用者互動...");
+      });
+  }
+
+  // 監聽使用者的第一次點擊或觸控（手機版）
+  document.addEventListener('click', playMusic);
+  document.addEventListener('touchstart', playMusic);
+
+  // 原本的圖標點擊切換功能保留
+  document.getElementById('music-container').onclick = function(e) {
+      e.stopPropagation(); // 防止觸發全域點擊事件
+      if (audio.paused) {
+          audio.play();
+          musicIcon.classList.add('playing');
+          playBtn.innerHTML = '||';
+      } else {
+          audio.pause();
+          musicIcon.classList.remove('playing');
+          playBtn.innerHTML = '▶';
+      }
+  };
 </script>
 
   <!-- Footer -->
