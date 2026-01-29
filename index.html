@@ -27,7 +27,7 @@
     *{box-sizing:border-box}
     /* html,body{margin:0;padding:0;background:#f7f7f7;color:var(--text);font-family:'Noto Sans TC', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Microsoft JhengHei', 'PingFang TC', sans-serif;scroll-behavior: smooth;} */
     /* html,body{margin:0;padding:0;background:#f7f7f7;color:var(--text);scroll-behavior: smooth;font-family: 'YunFengW3', sans-serif;font-size: 1.2rem;font-weight: bold;} */
-    html,body{margin:0;padding:0;background:#f7f7f7;color:var(--text);scroll-behavior: smooth;font-family: Microsoft JhengHei;font-size: 1.2rem;font-weight: bold;}
+    html,body{margin:0;padding:0;background:#f7f7f7;color:var(--text);scroll-behavior: smooth;font-family: Microsoft JhengHei;font-size: 1.1rem;font-weight: bold;}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
     .container{max-width:var(--container);margin:0 auto;padding:0 20px}
@@ -49,7 +49,7 @@
     .slider{position:relative;overflow:hidden;}
     .slides{display:flex;transition:transform .5s ease}
     .slide{min-width:100%;height:68vh;position:relative;display:flex;align-items:center}
-    @media (min-width:1024px){.slide{height:100vh}}
+    @media (min-width:1024px){.slide{height:93vh}}
     .slide::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.15) 40%,rgba(0,0,0,.0));}
     .slide-bg{position:absolute;inset:0;background-size:cover;background-position:center}
     .hero-content{position:relative;z-index:2;color:#fff;max-width:var(--container);margin:0 auto;padding:0 20px;width:100%;}
@@ -194,7 +194,7 @@
     justify-content: center;
 }
 .title-container {
-    margin-top: 15px;
+    margin-top: 60px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -206,7 +206,9 @@ input[type="range"] {
     accent-color: #888;
     width: 100px;
 }
-
+.circle-width {
+  display:block;
+}
 /* 文字樣式：微調字體大小以適應手機 */
 /* .role {
     font-size: clamp(0.9rem, 3vw, 1.2rem);
@@ -293,9 +295,11 @@ input[type="range"] {
         height: 95vh;
       }
       .circle-width {
-        width: 75%;
+        width: 100%;
       }
-
+      .title-container {
+        margin-top: 15px;
+      }
 
     }
     @media (max-width: 400px){
