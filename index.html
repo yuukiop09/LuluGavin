@@ -15,6 +15,10 @@
         font-weight: normal;
         font-style: normal;
     }
+    @font-face {
+      font-family: 'Deforta Demo';
+      src: url('font/Deforta Demo.otf') format('truetype');
+    }
     :root{
       --text:#1a1a1a; 
       --muted:#6b7280; 
@@ -71,7 +75,9 @@
 
     /* Sections */
     section{padding:10px 0}
-    .split{display:grid;gap:40px;align-items:center;margin-top:50px;}
+    .split{display:grid;gap:40px;align-items:center;
+      margin-top:30px;
+    }
     @media(min-width:992px){.split{grid-template-columns:1.1fr .9fr}}
 
     h2.kicker{color:var(--accent);font-weight:bold;font-size:2rem;margin:0 0 30px 0}
@@ -89,17 +95,17 @@
     .card-dp2{display:none;}
 
     /* 外層容器 */
-.circle-area {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px; /* 縮短間距以適應小螢幕 */
-    font-family: "Serif", "STSong", "SimSun", serif;
-    padding: 20px 10px;
-    /* background-color: #ffffff; */
-    width: 100%;
-    box-sizing: border-box;
-}
+    .circle-area {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px; /* 縮短間距以適應小螢幕 */
+        font-family: "Serif", "STSong", "SimSun", serif;
+        padding: 20px 10px;
+        /* background-color: #ffffff; */
+        width: 100%;
+        box-sizing: border-box;
+    }
 
 /* 個人資料區塊 */
 .profile-item {
@@ -233,6 +239,119 @@ input[type="range"] {
     margin-bottom: 60px; 
 }
 
+
+
+.myCount {
+            text-align: center;
+            color: #333;
+        }
+
+        /* 標題樣式：復刻圖片中的紅粉色調 */
+        .myCount h1 {
+            font-family: "Times New Roman", serif;
+            font-weight: 200;
+            font-size: 48px;
+            color: #c96a6a; /* 圖片中淡紅色的感覺 */
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .myCount .subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+
+        /* 倒數計時容器 */
+        .countdown-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        /* 單個方塊樣式 */
+        .time-box {
+            background-color: #cc7f60; /* 深紅底色 */
+            color: #fff;
+            width: 22%;
+            height: 90px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 模擬圖片中的金粉點綴（裝飾用） */
+        .time-box::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(circle, #ffd700 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.15;
+        }
+
+        .time-box .number {
+            font-size: 32px;
+            font-weight: bold;
+            z-index: 1;
+        }
+
+        .time-box .label {
+            font-size: 14px;
+            margin-top: 5px;
+            z-index: 1;
+        }
+    .btn-back{
+      padding: 5px;
+      border: 2px solid #bb4242;
+      border-radius: 5px;
+      color:#bb4242;
+    }
+
+
+
+.hero-title1 {
+  /* 基本字體設定 */
+  font-family: 'Deforta Demo', serif; /* 建議引入此字體，若無則回退至 serif */
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.02rem;
+  
+  /* 增加一點發光感，讓細筆畫在複雜背景中浮現出來 */
+  text-shadow: 
+    0 0 8px rgba(10, 10, 10, 0.6), 
+    1px 1px 3px rgba(0, 0, 0, 0.8);
+    
+  -webkit-font-smoothing: antialiased;
+  color: #ffffff; 
+}
+
+/* 如果你有使用 span 來強調特定單字 */
+.hero-title1 span {
+  font-family: 'Deforta Demo', cursive; /* 替換成你喜歡的名稱 */
+  font-size: 1.2rem; /* 鋼筆草寫體務必比一般字體設定大一點，視覺才平衡 */
+  font-weight: 400;
+  letter-spacing: 0.02rem;
+  
+  /* 增加一點發光感，讓細筆畫在複雜背景中浮現出來 */
+  text-shadow: 
+    0 0 8px rgba(255, 255, 255, 0.6), 
+    1px 1px 3px rgba(0, 0, 0, 0.8);
+    
+  -webkit-font-smoothing: antialiased;
+  color: #f8afaf; 
+}
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
 /* 移除原本的 @media 手機版堆疊設定 */
 
     /* RSVP block */
@@ -270,8 +389,8 @@ input[type="range"] {
       /* section{padding:10px 0} */
 
       .hero-content-fix1{
-        margin-left:12vw;
-        margin-top: 70vh;
+        margin-left:15vw;
+        margin-top: 75vh;
         color:#f56946;
         text-shadow: 
               -1px -1px 0 #ffffff,
@@ -300,6 +419,11 @@ input[type="range"] {
       .title-container {
         margin-top: 15px;
       }
+      .circle-area {
+        text-align:center;
+      }
+      .btn{padding:14px 24px;width:100%;color:#af5530}
+
 
     }
     @media (max-width: 400px){
@@ -316,6 +440,9 @@ input[type="range"] {
       /* .muted {font-size: 20px;} */
       /* .muted-fix {font-size: 20px;line-height: 36px;} */
       .mobile-menu a{font-size: 16px;}
+      .circle-area {
+        text-align:center;
+      }
     }
   </style>
 </head>
@@ -332,6 +459,8 @@ input[type="range"] {
         <a href="photo.html" onclick="dpTitle()">📷 相簿</a>
 
       </div>
+      <!-- <a class="btn-back" href="#rsvp" class="brand">確認出席</a> -->
+      <!-- <h1 class="hero-title1">Share in the Joy of Our <span> Love</span></h1> -->
       <button class="hamburger" id="hamburger" aria-label="開啟選單" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -354,9 +483,9 @@ input[type="range"] {
         <div class="slide" role="group" aria-label="1 / 4">
           <div class="slide-bg slide-bg-fix1" style="background-image:url('https://dev2.9iin.com/images/ftr360/aboutUs/api/06.jpg');"></div>
           <div class="hero-content hero-content-fix1">
-            <h1 class="hero-title">冠緯美汝的婚禮邀請</h1>
-            <div class="hero-sub"></div>
-            <div class="hero-meta">2026年04月11日 ｜ 全國大飯店</div>
+            <!-- <h1 class="hero-title1">Share in the Joy of Our <span> Love</span></h1> -->
+            <!-- <div class="hero-sub"></div> -->
+            <!-- <div class="hero-meta">2026年04月11日 ｜ 全國大飯店</div> -->
           </div>
         </div>
         <!-- Slide 2 -->
@@ -463,7 +592,7 @@ input[type="range"] {
     <div class="container split">
       <div class="circle-area">
         <div class="circle-width">
-          <h2 class="kicker">💕 我們的故事</h2>
+          <h2 class="kicker">我們的故事</h2>
           <h3>在一起五年多，</h3>
           <h3>從公司相識到成為彼此最重要的人。</h3>
           <br>
@@ -482,38 +611,50 @@ input[type="range"] {
     </div>
   </section>
 
-  <!-- Ceremony (簡要資訊) -->
-  <!-- <section class="container" id="ceremony">
-    <div class="card-img" style="padding:24px">
-      <h3 style="margin-top:0">婚禮資訊</h3>
-      <p class="muted" style="margin:8px 0 0">日期｜2026年 04月 11日（週六）<br>時間｜12:30入席，12:45典禮開始<br>地點｜全國大飯店（台中市西區館前路57號）</p>
-    </div>
-  </section> -->
+
 
   <section class="rsvp" id="rsvp">
     <div class="container split">
       <div class="card-img card-dp1">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.518625866411!2d120.66117567593648!3d24.15353777317917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d9d07e49ca1%3A0x380e1e9dad8a5b5b!2z5Y-w5Lit5YWo5ZyL5aSn6aOv5bqXIEhvdGVsIE5hdGlvbmFs!5e0!3m2!1szh-TW!2stw!4v1756456554281!5m2!1szh-TW!2stw" width="600" height="750" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <img alt="幸福合照" src="https://dev2.9iin.com/images/ftr360/aboutUs/api/09.jpg" />
       </div>
       <div class="circle-area">
         <div class="circle-width">
-          <h2 class="kicker">💌 確認出席</h2>
+          <h2 class="kicker">確認出席</h2>
           <p class="muted">很希望你能來和我們一起分享喜悅。</p>
           <p class="muted">為了安排座位與餐點，</p>
           <p class="muted">請記得填寫出席回覆表單！</p>
           <p class="muted">期待婚禮當天見到你 🥂</p>
-          <br>
-          <p class="muted-fix-title">💍婚禮資訊</p>
-          <p class="muted" style="margin:8px 0 0;">日期：2026年04月11日（週六）</p>
-          <p class="muted" style="margin:8px 0 0;">時間：12：00開始入席~12：30準時開席</p>
-          <p class="muted" style="margin:8px 0 0;">地點：全國大飯店</p>
-          <p class="muted" style="margin:8px 0 0;">地址：台中市西區館前路57號</p>
-          <br>
-          <a class="btn" href="https://forms.gle/8KitW2kgccR34H6K8" target="_blank">👉確認出席</a>
+          <a class="btn" href="https://forms.gle/8KitW2kgccR34H6K8" target="_blank">確認出席</a>
+
+
+          <div class="myCount">
+              <h1>Save the date</h1>
+              <div class="subtitle">【 好久不見 / 婚禮見 】</div>
+
+              <div class="countdown-container">
+                  <div class="time-box">
+                      <span class="number" id="days">000</span>
+                      <span class="label">天</span>
+                  </div>
+                  <div class="time-box">
+                      <span class="number" id="hours">00</span>
+                      <span class="label">時</span>
+                  </div>
+                  <div class="time-box">
+                      <span class="number" id="minutes">00</span>
+                      <span class="label">分</span>
+                  </div>
+                  <div class="time-box">
+                      <span class="number" id="seconds">00</span>
+                      <span class="label">秒</span>
+                  </div>
+              </div>
+          </div>
         </div>
       </div>
       <div class="card-img card-dp2">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.518625866411!2d120.66117567593648!3d24.15353777317917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d9d07e49ca1%3A0x380e1e9dad8a5b5b!2z5Y-w5Lit5YWo5ZyL5aSn6aOv5bqXIEhvdGVsIE5hdGlvbmFs!5e0!3m2!1szh-TW!2stw!4v1756456554281!5m2!1szh-TW!2stw" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <img alt="幸福合照" src="https://dev2.9iin.com/images/ftr360/aboutUs/api/09.jpg" />
       </div>
     </div>
   </section>
@@ -522,7 +663,7 @@ input[type="range"] {
     <div class="container split">
       <div class="circle-area">
         <div class="circle-width">
-          <h2 class="kicker">🅿 停車資訊</h2>
+          <h2 class="kicker">停車資訊</h2>
           <p class="muted">飯店停車場</p>
           <p class="muted">•入口：館前路正門右轉</p>
           <p class="muted">•車位有限，先到先停，無法預約</p>
@@ -534,6 +675,35 @@ input[type="range"] {
         </div>
       </div>
       <div class="card-img">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.518625866411!2d120.66117567593648!3d24.15353777317917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d9d07e49ca1%3A0x380e1e9dad8a5b5b!2z5Y-w5Lit5YWo5ZyL5aSn6aOv5bqXIEhvdGVsIE5hdGlvbmFs!5e0!3m2!1szh-TW!2stw!4v1756456554281!5m2!1szh-TW!2stw" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+    <section class="rsvp" id="rsvp">
+    <div class="container split">
+      <div class="card-img card-dp1">
+        <img alt="停車" src="https://dev2.9iin.com/images/ftr360/aboutUs/api/car.jpg" />
+        
+      </div>
+      <div class="circle-area">
+        <div class="circle-width">
+          <h2 class="kicker">婚禮資訊</h2>
+
+          <p class="muted" style="margin:8px 0 0;">日期：2026年04月11日（週六）</p>
+          <p class="muted" style="margin:8px 0 0;">時間：12：00開始入席～12：30準時開席</p>
+          <p class="muted" style="margin:8px 0 0;">地點：全國大飯店</p>
+          <p class="muted" style="margin:8px 0 0;">地址：台中市西區館前路57號</p>
+          <br>
+          <!-- <a class="btn" href="https://forms.gle/8KitW2kgccR34H6K8" target="_blank">👉確認出席</a> -->
+        </div>
+
+
+
+
+
+      </div>
+      <div class="card-img card-dp2">
         <img alt="停車" src="https://dev2.9iin.com/images/ftr360/aboutUs/api/car.jpg" />
       </div>
     </div>
@@ -543,8 +713,8 @@ input[type="range"] {
     <div class="container split">
       <div class="circle-area">
         <div class="circle-width">
-          <h2 class="kicker">📷 前往相簿</h2>
-          <a class="btn" href="photo.html">👉點我前往相簿</a>
+          <!-- <h2 class="kicker">📷前往相簿</h2> -->
+          <a class="btn" href="photo.html">點我前往相簿</a>
         </div>
       </div>
     </div>
@@ -566,6 +736,35 @@ input[type="range"] {
     }
     .playing { animation-play-state: running !important; }
 </style>
+
+<script>
+    // 設定你的婚禮日期 (格式: YYYY-MM-DD HH:mm:ss)
+    const weddingDate = new Date("2026-04-11 00:00:00").getTime();
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+
+        if (distance < 0) {
+            document.querySelector(".countdown-container").innerHTML = "<h2>這天已經到來囉！</h2>";
+            return;
+        }
+
+        const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = d;
+        document.getElementById("hours").innerText = h.toString().padStart(2, '0');
+        document.getElementById("minutes").innerText = m.toString().padStart(2, '0');
+        document.getElementById("seconds").innerText = s.toString().padStart(2, '0');
+    }
+
+    // 每秒執行一次
+    setInterval(updateCountdown, 1000);
+    updateCountdown(); // 初始執行一次
+</script>
 
 
 <script>
