@@ -44,7 +44,7 @@
     .menu a{font-weight:600;color:#374151}
     .menu a:hover{color:var(--accent)}
     .hamburger{display:none;flex-direction:column;gap:8px;border: none;background-color: transparent;color:#111}
-    .hamburger span{width:24px;height:2px;background:#e59957;border-radius:1px}
+    .hamburger span{width:24px;height:2px;background:#e59957;border-radius:1px;margin-right: 10px;}
     .mobile-menu{display:none;flex-direction:column;padding:14px 0;border-top:1px solid #eee}
     .mobile-menu a{padding:10px 30px;color:#374151}
 
@@ -355,6 +355,53 @@ input[type="range"] {
     to { opacity: 1; transform: translateY(0); }
   }
 
+
+.title-area {
+  text-align: center;
+  padding: 60px 20px 80px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* WELCOME 弧形 */
+.welcome-svg {
+  width: 50%;
+  max-width: 580px;
+  height: auto;
+  margin-bottom: -10px;
+}
+
+/* 副標題 */
+.chinese-subtitle {
+
+  font-size: 1rem;
+  color: #333;
+  margin: 15px 0 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+/* 主標題 - 手寫毛筆風 */
+.chinese-main {
+  font-family: 'YunFengW3', cursive;
+  font-size: 1.7rem;
+  color: #f55e39;
+  margin-top: 35px;
+  letter-spacing: 4px;
+}
+
+.family-chinese{
+  font-family: 'YunFengW3', cursive !important;
+
+}
+
+/* 響應式調整（手機也會自動變小） */
+@media (max-width: 480px) {
+  .chinese-main { font-size: 2rem; }
+  .chinese-subtitle { font-size: 1rem; }
+}
+
 /* 移除原本的 @media 手機版堆疊設定 */
 
     /* RSVP block */
@@ -408,7 +455,7 @@ input[type="range"] {
       .hero-meta{font-weight:bold;font-size:18px;}
 
       #home{
-        margin-bottom:60px;
+        /* margin-bottom:60px; */
       }
       footer{
         font-size:1rem;
@@ -426,6 +473,9 @@ input[type="range"] {
         text-align:center;
       }
       .btn{padding:14px 24px;width:100%;color:#af5530}
+      .welcome-svg{
+        width: 85%;
+      }
 
 
     }
@@ -509,9 +559,24 @@ input[type="range"] {
       <div class="dots" id="dots" aria-hidden="false"></div>
     </div>
   </header>
-  <div class="title-container">
-    <h2 class="kicker">誠摯邀請你的蒞臨</h2>
-  </div>
+<div class="title-area">
+  <!-- WELCOME 弧形文字 -->
+  <svg class="welcome-svg" viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <path id="arc" d="M 50 150 Q 250 60 450 150" />
+    </defs>
+    <text fill="#f55e39" font-size="82" font-weight="bold" letter-spacing="4" text-anchor="middle">
+      <textPath href="#arc" startOffset="50%">WELCOME</textPath>
+    </text>
+  </svg>
+
+  <!-- 副標題 -->
+  <p class="chinese-subtitle">【冠緯&美汝的婚禮邀請】</p>
+  <p class="chinese-subtitle">2026年04月11日 ｜ 全國大飯店</p>
+
+  <!-- 主標題（手寫風格） -->
+  <p class="chinese-main">～我們要結婚啦～</p>
+</div>
 
   <div class="circle-area">
       <div class="profile-item">
@@ -580,7 +645,7 @@ input[type="range"] {
           <p class="muted">這麼重要的時刻</p>
           <p class="muted">希望你能來陪我們</p>
           <p class="muted">一起歡笑、一起感動、一起幸福✨</p>
-          <p class="muted">期待在婚禮當天見到你。❤️</p>
+          <p class="muted">期待在婚禮當天見到你❤️</p>
           <!-- <a class="btn" href="#">我們的故事</a> -->
         </div>
       </div>
@@ -911,5 +976,61 @@ input[type="range"] {
     });
 
   </script>
+
+  <script>
+    // 自動往下滑
+    document.addEventListener('DOMContentLoaded', function() {
+        const musicIcon = document.getElementById('music-icon');
+        if (musicIcon) {
+            musicIcon.click();
+        }
+    });
+
+
+    
+    let scrollInterval; // 負責執行滾動的定時器
+    let idleTimer;     // 負責計算閒置時間的定時器
+    const idleLimit = 5000; // 閒置時間門檻（5秒）
+      
+    function startAutoScroll() {
+        // 使用 setInterval 持續小幅度滾動，營造「慢慢往下」的感覺
+        scrollInterval = setInterval(() => {
+            window.scrollBy({
+                top: 2,      // 每次滾動的像素（數字越大越快）
+                behavior: 'smooth' 
+            });
+          
+            // 如果滾動到底部，就停止計時器以免浪費效能
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                stopAutoScroll();
+            }
+        }, 30); // 每 30 毫秒移動一次
+    }
+    
+    function stopAutoScroll() {
+        clearInterval(scrollInterval);
+    }
+    
+    function resetIdleTimer() {
+        // 1. 使用者有動作，優先權交還使用者：立即停止自動滾動
+        stopAutoScroll();
+        
+        // 2. 清除舊的閒置倒數
+        clearTimeout(idleTimer);
+        
+        // 3. 重新開始倒數 5 秒
+        idleTimer = setTimeout(() => {
+            startAutoScroll();
+        }, idleLimit);
+    }
+    
+    // 監聽各種使用者動作：滑鼠移動、點擊、滾輪、鍵盤輸入、觸控
+    ['mousemove', 'mousedown', 'wheel', 'keydown', 'touchstart'].forEach(event => {
+        window.addEventListener(event, resetIdleTimer);
+    });
+    
+    // 初始化：網頁載入後開始倒數
+    resetIdleTimer();
+    </script>
 </body>
 </html>
