@@ -697,7 +697,7 @@ input[type="range"] {
 
 
           <div class="myCount">
-              <h1>Save the date</h1>
+              <h1>Save the Date</h1>
               <div class="subtitle">【 好久不見 / 婚禮見 】</div>
 
               <div class="countdown-container">
@@ -778,7 +778,7 @@ input[type="range"] {
   </section>
 
   <section class="rsvp">
-    <div class="container split">
+    <div class="container">
       <div class="circle-area">
         <div class="circle-width">
           <!-- <h2 class="kicker">📷前往相簿</h2> -->
@@ -977,38 +977,46 @@ input[type="range"] {
 
   </script>
 
-  <script>
+<script>
     // 自動往下滑
-    document.addEventListener('DOMContentLoaded', function() {
-        const musicIcon = document.getElementById('music-icon');
-        if (musicIcon) {
-            musicIcon.click();
-        }
-    });
+    // document.addEventListener('DOMContentLoaded', function() {
+    //     const musicIcon = document.getElementById('music-icon');
+    //     if (musicIcon) {
+    //         musicIcon.click();
+    //     }
+    // });
 
-
-    
     let scrollInterval; // 負責執行滾動的定時器
     let idleTimer;     // 負責計算閒置時間的定時器
     const idleLimit = 5000; // 閒置時間門檻（5秒）
+    
+    let lastTime = 0;
+    const scrollSpeed = 2; // 每幀滾動像素（增加到10以確保在iPhone上可見）
+    const frameRate = 1000 / 60; // 約 60fps
       
     function startAutoScroll() {
-        // 使用 setInterval 持續小幅度滾動，營造「慢慢往下」的感覺
-        scrollInterval = setInterval(() => {
-            window.scrollBy({
-                top: 2,      // 每次滾動的像素（數字越大越快）
-                behavior: 'smooth' 
-            });
-          
-            // 如果滾動到底部，就停止計時器以免浪費效能
+        lastTime = 0;
+        scrollInterval = requestAnimationFrame(autoScroll);
+    }
+    
+    function autoScroll(timestamp) {
+        if (!lastTime) lastTime = timestamp;
+        const delta = timestamp - lastTime;
+
+        if (delta > frameRate) {
+            window.scrollBy({ top: scrollSpeed }); // 移除 behavior: 'smooth' 以提高兼容性
+            lastTime = timestamp;
+
             if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
                 stopAutoScroll();
+                return;
             }
-        }, 30); // 每 30 毫秒移動一次
+        }
+        scrollInterval = requestAnimationFrame(autoScroll);
     }
     
     function stopAutoScroll() {
-        clearInterval(scrollInterval);
+        cancelAnimationFrame(scrollInterval);
     }
     
     function resetIdleTimer() {
@@ -1031,6 +1039,6 @@ input[type="range"] {
     
     // 初始化：網頁載入後開始倒數
     resetIdleTimer();
-    </script>
+</script>
 </body>
 </html>
